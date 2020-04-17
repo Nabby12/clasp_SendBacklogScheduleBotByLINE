@@ -1,5 +1,4 @@
 const LINE_NOTIFY_TOKEN: string = PropertiesService.getScriptProperties().getProperty('LINE_NOTIFY_TOKEN');
-const NO_SCHEDULE_REPLY: string = PropertiesService.getScriptProperties().getProperty('NO_SCHEDULE_REPLY');
 const BACKLOG_SPACE_KEY: string = PropertiesService.getScriptProperties().getProperty('BACKLOG_SPACE_KEY');
 const BACKLOG_PROJECT_ID: string = PropertiesService.getScriptProperties().getProperty('BACKLOG_PROJECT_ID');
 const BACKLOG_API_TOKEN: string = PropertiesService.getScriptProperties().getProperty('BACKLOG_API_TOKEN');
@@ -51,7 +50,7 @@ function getSendBody(): string {
     let issueList = JSON.parse(responseIssue.getContentText());
 
     if (issueList.length < 1) {
-        return '\n' + NO_SCHEDULE_REPLY;
+        return;
     }
 
     let replyMessage: string = '';
